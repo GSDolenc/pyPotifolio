@@ -1,0 +1,155 @@
+/* Fonte Moderna */
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #1a1a1a, #333333); /* Gradiente de fundo em tons escuros */
+    color: #e0e0e0; /* Texto claro */
+    overflow-x: hidden;
+}
+
+header {
+    background: rgba(34, 34, 34, 0.9); /* Fundo escuro semi-transparente */
+    color: #28a745; /* Verde */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Título e navegação em cantos opostos */
+    align-items: center;
+    border-bottom: 4px solid #28a745; /* Borda verde */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Para alinhar os itens horizontalmente */
+}
+
+nav ul li {
+    margin-left: 20px; /* Espaçamento entre os itens */
+}
+
+nav ul li a {
+    color: #28a745; /* Verde */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #218838; /* Verde escuro */
+    transform: scale(1.1);
+}
+
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+main h2 {
+    color: #28a745; /* Verde */
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Layout de Seções */
+section {
+    padding: 30px;
+    background: rgba(40, 40, 40, 0.9); /* Fundo escuro semi-transparente */
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #28a745; /* Verde */
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1.1em;
+    color: #cccccc; /* Texto mais claro */
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    color: #28a745; /* Verde */
+    text-decoration: none;
+    margin: 10px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+contact-links a:hover {
+    color: #218838; /* Verde escuro */
+}
+
+footer {
+    background: rgba(34, 34, 34, 0.9); /* Fundo escuro semi-transparente */
+    color: #28a745; /* Verde */
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 4px solid #28a745; /* Borda verde */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2, p {
+    margin: 20px 0;
+}
+
+/* Estilização dos botões */
+button {
+    background-color: #28a745;
+    border: none;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Estilização das imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 4px solid #28a745; /* Borda verde */
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+img:hover {
+    transform: scale(1.03);
+}

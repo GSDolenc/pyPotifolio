@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Portfólio de Gabriel Sanches Dolenc</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('contact') }}">Contato</a></li>
+            </ul>
+        </nav>
+        <h1>Entre em Contato</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Vamos Conversar</h2>
+            <p>Você pode me contatar através dos seguintes canais:</p>
+            <div class="contact-links">
+                <a href="mailto:gabrieldolenc@gmail.com">E-mail</a>
+                <a href="https://www.linkedin.com/in/gabriel-sanches-dolenc-65306b251/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/GSDolenc" target="_blank">GitHub</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

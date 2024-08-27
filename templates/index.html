@@ -1,59 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio do Aventureiro</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Início - Portfólio de Gabriel Sanches Dolenc</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <h1>Bem-vindo ao Meu Portfólio de Aventuras</h1>
-            <p>Explore minhas jornadas e conquistas no mundo da programação.</p>
-            <a href="#projects" class="btn">Explorar Missões</a>
-        </section>
-
-        <section id="about" class="about">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('contact') }}">Contato</a></li>
+            </ul>
+        </nav>
+        <h1>Gabriel Sanches Dolenc</h1>
+        <p>Desenvolvedor</p>
+    </header>
+    <main>
+        <section>
             <h2>Sobre Mim</h2>
-            <p>Sou um desenvolvedor apaixonado por tecnologia e desafios. Aqui você encontrará minhas criações e aventuras no universo do código.</p>
+            <p>Olá! Meu nome é Gabriel Sanches Dolenc. Sou um desenvolvedor. estudei algumas linguagens de programação e estou sempre buscando aprender e evoluir no campo do desenvolvimento, Nesse momento estou cursando Ciências da Computação
+         Faculdade Unimax </p>
         </section>
-
-        <section id="projects" class="projects">
-            <h2>Missões Completas</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <h3>Sistema de E-commerce</h3>
-                    <p>Uma plataforma completa para vendas online.</p>
-                </div>
-                <div class="project">
-                    <h3>Servidor Minecraft</h3>
-                    <p>Um servidor customizado com mods e funcionalidades únicas.</p>
-                </div>
-                <div class="project">
-                    <h3>Estruturas em C++</h3>
-                    <p>Projetos que exploram a robustez da linguagem C++.</p>
-                </div>
-            </div>
+        <section>
+            <h2>Minhas Habilidades</h2>
+            <p>Conheça algumas das minhas habilidades:</p>
+            <ul>
+                <li>Idiomas de Programação: Python, C++, JavaScript, java, React,Flutter  </li>
+                <li>Motores de Jogo: Unity, Unreal Engine</li>
+                <li>Ferramentas: Git </li>
+            </ul>
         </section>
-
-        <footer>
-            <p>&copy; 2024 Portfólio do Aventureiro. Todos os direitos reservados.</p>
-        </footer>
-    </div>
+    </main>
 </body>
 </html>
