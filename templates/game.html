@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Meu Jogo</h1>
+          <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('contact') }}">Contato</a></li>
+                <li><a href="{{ url_for('game') }}">game</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="game-section">
+            <h2>Jogo da Cobrinha</h2>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+        </section>
+    </main>
+
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Game Over!</h2>
+            <p>Você atingiu 20 pontos ou perdeu.veja meus projetos no git ou jogue novamente</p>
+            <button onclick="location.reload()">Jogar de Novo</button>
+            <button onclick="window.location.href='https://github.com/GSDolenc?tab=repositories'">Ver Projetos no GitHub</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("keydown", function(event) {
+            if([37, 38, 39, 40].indexOf(event.keyCode) > -1) {
+                event.preventDefault();
+            }
+        }, false);
+
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const box = 20;
+        let snake = [];
+        snake[0] = { x: 9 * box, y: 10 * box };
+
+        let food = {
+            x: Math.floor(Math.random() * 19 + 1) * box,
+            y: Math.floor(Math.random() * 19 + 1) * box,
+        };
+
+        let score = 0;
+        let d;
+        let gameEnded = false; // Flag para verificar se o jogo acabou
+
+        document.addEventListener("keydown", direction);
+
+        function direction(event) {
+            let key = event.keyCode;
+            if (key == 37 && d != "RIGHT") {
+                d = "LEFT";
+            } else if (key == 38 && d != "DOWN") {
+                d = "UP";
+            } else if (key == 39 && d != "LEFT") {
+                d = "RIGHT";
+            } else if (key == 40 && d != "UP") {
+                d = "DOWN";
+            }
+        }
+
+        function collision(head, array) {
+            for (let i = 0; i < array.length; i++) {
+                if (head.x == array[i].x && head.y == array[i].y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function showMessage() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < snake.length; i++) {
+                ctx.fillStyle = i == 0 ? "green" : "white";
+                ctx.fillRect(snake[i].x, snake[i].y, box, box);
+            }
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, box, box);
+
+            let snakeX = snake[0].x;
+            let snakeY = snake[0].y;
+
+            if (d == "LEFT") snakeX -= box;
+            if (d == "UP") snakeY -= box;
+            if (d == "RIGHT") snakeX += box;
+            if (d == "DOWN") snakeY += box;
+
+            if (snakeX == food.x && snakeY == food.y) {
+                score++;
+                food = {
+                    x: Math.floor(Math.random() * 19 + 1) * box,
+                    y: Math.floor(Math.random() * 19 + 1) * box,
+                };
+            } else {
+                snake.pop();
+            }
+
+            let newHead = { x: snakeX, y: snakeY };
+
+            if (
+                snakeX < 0 ||
+                snakeX >= canvas.width ||
+                snakeY < 0 ||
+                snakeY >= canvas.height ||
+                collision(newHead, snake)
+            ) {
+                if (!gameEnded) {
+                    gameEnded = true;
+                    clearInterval(game);
+                    showMessage(); // Exibe o modal quando o jogador perde
+                }
+            } else if (score >= 20) { // Condição para mostrar o modal ao atingir 20 pontos
+                if (!gameEnded) {
+                    gameEnded = true;
+                    clearInterval(game);
+                    showMessage(); // Exibe o modal ao atingir 20 pontos
+                }
+            }
+
+            snake.unshift(newHead);
+
+            ctx.fillStyle = "white";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 20);
+        }
+
+        let game = setInterval(draw, 100);
+    </script>
+</body>
+</html>
